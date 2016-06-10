@@ -1,0 +1,22 @@
+
+<div>
+    <h2><span translate="superheroesApp.publisher.detail.title">Publisher</span> {{vm.publisher.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span translate="superheroesApp.publisher.name">Name</span></dt>
+        <dd>
+            <span>{{vm.publisher.name}}</span>
+        </dd>
+        <dt><span translate="superheroesApp.publisher.description">Description</span></dt>
+        <dd>
+            <span>{{vm.publisher.description}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

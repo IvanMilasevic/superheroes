@@ -1,0 +1,42 @@
+
+<div>
+    <h2><span translate="superheroesApp.superhero.detail.title">Superhero</span> {{vm.superhero.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span translate="superheroesApp.superhero.name">Name</span></dt>
+        <dd>
+            <span>{{vm.superhero.name}}</span>
+        </dd>
+        <dt><span translate="superheroesApp.superhero.pseudonym">Pseudonym</span></dt>
+        <dd>
+            <span>{{vm.superhero.pseudonym}}</span>
+        </dd>
+        <dt><span translate="superheroesApp.superhero.dateOfAppearance">Date Of Appearance</span></dt>
+        <dd>
+            <span>{{vm.superhero.dateOfAppearance | date:'medium'}}</span>
+        </dd>
+        <dt><span translate="superheroesApp.superhero.publisher">Publisher</span></dt>
+        <dd>
+            <a ui-sref="publisher-detail({id:vm.superhero.publisher.id})">{{vm.superhero.publisher.id}}</a>
+        </dd>
+        <dt><span translate="superheroesApp.superhero.skill">Skill</span></dt>
+        <dd>
+            <span ng-repeat="skill in vm.superhero.skills">
+                <a ui-sref="skill-detail({id: {{skill.id}}})">{{skill.id}}</a>{{$last ? '' : ', '}}
+            </span>
+        </dd>
+        <dt><span translate="superheroesApp.superhero.allyWith">Ally With</span></dt>
+        <dd>
+            <span ng-repeat="allyWith in vm.superhero.allyWiths">
+                <a ui-sref="superhero-detail({id: {{allyWith.id}}})">{{allyWith.id}}</a>{{$last ? '' : ', '}}
+            </span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

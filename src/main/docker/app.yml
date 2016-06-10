@@ -1,0 +1,16 @@
+version: '2'
+services:
+    superheroes-app:
+        image: superheroes
+        external_links:
+            - superheroes-postgresql:postgresql
+        environment:
+            - SPRING_PROFILES_ACTIVE=prod
+            - SPRING_DATASOURCE_URL=jdbc:postgresql://postgresql:5432/superheroes
+            - JHIPSTER_SLEEP=10 # gives time for the database to boot before the application
+        ports:
+            - 8080:8080
+    superheroes-postgresql:
+        extends:
+            file: postgresql.yml
+            service: superheroes-postgresql

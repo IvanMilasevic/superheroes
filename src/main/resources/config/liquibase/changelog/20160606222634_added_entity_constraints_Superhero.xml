@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <!--
+        Added the constraints for entity Superhero.
+    -->
+    <changeSet id="20160606222634-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="publisher_id"
+                                 baseTableName="superhero"
+                                 constraintName="fk_superhero_publisher_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="publisher"/>
+
+        <addForeignKeyConstraint baseColumnNames="superhero_id"
+                                 baseTableName="superhero_skill"
+                                 constraintName="fk_superhero_skill_skill_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="superhero"/>
+        <addForeignKeyConstraint baseColumnNames="skill_id"
+                                 baseTableName="superhero_skill"
+                                 constraintName="fk_superhero_skill_superhero_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="skill"/>
+
+        <addForeignKeyConstraint baseColumnNames="superhero_id"
+                                 baseTableName="superhero_ally_with"
+                                 constraintName="fk_superhero_ally_with_superhero_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="superhero"/>
+        <addForeignKeyConstraint baseColumnNames="superhero_ally_id"
+                                 baseTableName="superhero_ally_with"
+                                 constraintName="fk_superhero_ally_with_ally_superhero_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="superhero"/>
+
+    </changeSet>
+</databaseChangeLog>

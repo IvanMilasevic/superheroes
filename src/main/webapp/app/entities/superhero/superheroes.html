@@ -1,0 +1,76 @@
+<div>
+    <h2 translate="superheroesApp.superhero.home.title">Superheroes</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="superhero.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  translate="superheroesApp.superhero.home.createLabel">
+                        Create new Superhero
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span translate="global.field.id">ID</span></th>
+                    <th><span translate="superheroesApp.superhero.name">Name</span></th>
+                    <th><span translate="superheroesApp.superhero.pseudonym">Pseudonym</span></th>
+                    <th><span translate="superheroesApp.superhero.dateOfAppearance">Date Of Appearance</span></th>
+                    <th><span translate="superheroesApp.superhero.publisher">Publisher</span></th>
+                    <th><span translate="superheroesApp.superhero.skill">Skill</span></th>
+                    <th><span translate="superheroesApp.superhero.allyWith">Ally With</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="superhero in vm.superheroes track by superhero.id">
+                    <td><a ui-sref="superhero-detail({id:superhero.id})">{{superhero.id}}</a></td>
+                    <td>{{superhero.name}}</td>
+                    <td>{{superhero.pseudonym}}</td>
+                    <td>{{superhero.dateOfAppearance | date:'medium'}}</td>
+                    <td>
+                        <a ui-sref="publisher-detail({id:superhero.publisher.id})">{{superhero.publisher.id}}</a>
+                    </td>
+                    <td>
+                        <span ng-repeat="skill in superhero.skills">
+                            <a class="form-control-static" ui-sref="skill-detail({id: {{skill.id}}})">{{skill.id}}</a>{{$last ? '' : ', '}}
+                        </span>
+                    </td>
+                    <td>
+                        <span ng-repeat="allyWith in superhero.allyWiths">
+                            <a class="form-control-static" ui-sref="superhero-detail({id: {{allyWith.id}}})">{{allyWith.id}}</a>{{$last ? '' : ', '}}
+                        </span>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="superhero-detail({id:superhero.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="superhero.edit({id:superhero.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="superhero.delete({id:superhero.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

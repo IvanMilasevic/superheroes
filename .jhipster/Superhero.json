@@ -1,0 +1,56 @@
+{
+  "relationships": [
+    {
+      "relationshipId": 1,
+      "relationshipName": "publisher",
+      "otherEntityName": "publisher",
+      "relationshipType": "many-to-one",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipId": 2,
+      "relationshipName": "skill",
+      "otherEntityName": "skill",
+      "relationshipType": "many-to-many",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipId": 3,
+      "relationshipName": "allyWith",
+      "otherEntityName": "superhero",
+      "relationshipType": "many-to-many",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipId": 4,
+      "relationshipName": "allyTo",
+      "otherEntityName": "superhero",
+      "relationshipType": "many-to-many",
+      "ownerSide": false,
+      "otherEntityRelationshipName": "allyWith"
+    }
+  ],
+  "fields": [
+    {
+      "fieldId": 1,
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldId": 2,
+      "fieldName": "pseudonym",
+      "fieldType": "String"
+    },
+    {
+      "fieldId": 3,
+      "fieldName": "dateOfAppearance",
+      "fieldType": "ZonedDateTime"
+    }
+  ],
+  "changelogDate": "20160610071719",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no"
+}
