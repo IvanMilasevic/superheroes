@@ -18,18 +18,18 @@
         </dd>
         <dt><span translate="superheroesApp.superhero.publisher">Publisher</span></dt>
         <dd>
-            <a ui-sref="publisher-detail({id:vm.superhero.publisher.id})">{{vm.superhero.publisher.id}}</a>
+            <a ui-sref="publisher-detail({id:vm.superhero.publisher.id})">{{vm.superhero.publisher.name}}</a>
         </dd>
         <dt><span translate="superheroesApp.superhero.skill">Skill</span></dt>
         <dd>
             <span ng-repeat="skill in vm.superhero.skills">
-                <a ui-sref="skill-detail({id: {{skill.id}}})">{{skill.id}}</a>{{$last ? '' : ', '}}
+                <a ui-sref="skill-detail({id: {{skill.id}}})">{{skill.name}}</a>{{$last ? '' : ', '}}
             </span>
         </dd>
         <dt><span translate="superheroesApp.superhero.allyWith">Ally With</span></dt>
         <dd>
             <span ng-repeat="allyWith in vm.superhero.allyWiths">
-                <a ui-sref="superhero-detail({id: {{allyWith.id}}})">{{allyWith.id}}</a>{{$last ? '' : ', '}}
+                <a ui-sref="superhero-detail({id: {{allyWith.id}}})">{{allyWith.name}}</a>{{$last ? '' : ', '}}
             </span>
         </dd>
     </dl>

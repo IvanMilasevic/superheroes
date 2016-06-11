@@ -35,16 +35,16 @@
                     <td>{{superhero.pseudonym}}</td>
                     <td>{{superhero.dateOfAppearance | date:'medium'}}</td>
                     <td>
-                        <a ui-sref="publisher-detail({id:superhero.publisher.id})">{{superhero.publisher.id}}</a>
+                        <a ui-sref="publisher-detail({id:superhero.publisher.id})">{{superhero.publisher.name}}</a>
                     </td>
                     <td>
                         <span ng-repeat="skill in superhero.skills">
-                            <a class="form-control-static" ui-sref="skill-detail({id: {{skill.id}}})">{{skill.id}}</a>{{$last ? '' : ', '}}
+                            <a class="form-control-static" ui-sref="skill-detail({id: {{skill.id}}})">{{skill.name}}</a>{{$last ? '' : ', '}}
                         </span>
                     </td>
                     <td>
                         <span ng-repeat="allyWith in superhero.allyWiths">
-                            <a class="form-control-static" ui-sref="superhero-detail({id: {{allyWith.id}}})">{{allyWith.id}}</a>{{$last ? '' : ', '}}
+                            <a class="form-control-static" ui-sref="superhero-detail({id: {{allyWith.id}}})">{{allyWith.name}}</a>{{$last ? '' : ', '}}
                         </span>
                     </td>
                     <td class="text-right">
